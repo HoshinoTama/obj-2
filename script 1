@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+import hashlib
+
+print( '--test--' )
+
+###### take in name of file ######
+userInput = raw_input( "name of file: " )
+print "000", userInput
+
+
+
+###### read file and put data into variable #####
+file = open( userInput, "r" )
+content = file.read()
+
+print "001", content
+
+
+
+###### md5 hash content of file ######
+enc1 = hashlib.md5( content.encode() )
+md5 = enc1.hexdigest()
+
+print "002", md5
+
+
+
+###### sha1 hash content of file ######
+enc2 = hashlib.sha1( content.encode() )
+sha1 = enc2.hexdigest()
+
+print "003", sha1
+
+
+
+###### sha256 hash content of file ######
+enc3 = hashlib.sha256( content.encode() )
+sha256 = enc3.hexdigest()
+
+print "004", sha256
+
