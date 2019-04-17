@@ -1,0 +1,72 @@
+
+#!/usr/bin/env python3
+import hashlib
+from pathlib import Path
+
+print( '--test--' )
+
+###### take in name of directory ######
+folder = input( "path to dir: " )
+print( "user input: ", folder )
+
+
+
+###### take in name of file #####
+file = input( "file name: " )
+print( "user input: ", file )
+
+
+
+###### append directory and file name together #####
+path = Path( folder )
+absolutePath = path / file
+
+print( absolutePath )
+
+
+
+###### read file and put data into variable #####
+file = open( absolutePath )
+content = file.read()
+
+print( content )
+
+
+
+###### md5 hash content of file ######
+enc1 = hashlib.md5( content.encode() )
+md5 = enc1.hexdigest()
+
+print( "md5: ", md5 )
+
+
+
+###### sha1 hash content of file ######
+enc2 = hashlib.sha1( content.encode() )
+sha1 = enc2.hexdigest()
+
+print( "sha1: ", sha1 )
+
+
+
+###### sha256 hash content of file ######
+enc3 = hashlib.sha256( content.encode() )
+sha256 = enc3.hexdigest()
+
+print( "sha256: ", sha256 )
+
+
+
+###### close file ######
+file.close()
+
+
+
+###                     ###
+# day 2 changes sustained #
+###                     ###
+# 1. call script in python3 now rather than python
+# 2. changed all print statements to include brackets to be able to run in python3 
+
+
+
